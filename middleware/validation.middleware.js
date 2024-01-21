@@ -1,6 +1,7 @@
 const options = {
     aboartErly: false
 }
+//validation middleware
 const validation = (schema) => async (req, res, next) => {
     const { error } = await schema.validate(req, options)
     if (error) {

@@ -1,6 +1,8 @@
+//function for succeess response
 function sendResponse(res, status, statusCode, message, data) {
     return res.status(statusCode).json({ status, statusCode, message: message, data: data });
 }
+//function for error handling
 function errorHandler(err, res) {
     const response = {
         code: err.statusCode,
