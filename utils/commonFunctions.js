@@ -13,4 +13,12 @@ function errorHandler(err, res) {
         .status(response.code)
         .json({ message: `Oops,something went wrong`, error: ' ' + err });
 }
-module.exports = { sendResponse, errorHandler }
+// Generate a random OTP.
+const generateOTP = () => {
+    let OTP = '';
+    for (let i = 0; i < 6; i++) {
+        OTP += Math.floor(Math.random() * 10);
+    }
+    return OTP;
+};
+module.exports = { sendResponse, errorHandler, generateOTP }

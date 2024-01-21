@@ -1,6 +1,7 @@
 const { createOrder, verifyOrder } = require("../../service/payment.services")
 const { sendResponse, errorHandler } = require("../../utils/commonFunctions")
 const paymentService = require("./razorPay.service")
+//controller for create order
 const createPayment = async (req, res) => {
     try {
         const {
@@ -19,6 +20,7 @@ const createPayment = async (req, res) => {
         return errorHandler(error, res);
     }
 };
+//controller for verify order
 const verifyPayment = async (req, res) => {
     try {
         const {
@@ -29,8 +31,8 @@ const verifyPayment = async (req, res) => {
             const payment = await paymentService.getPayment(razorpayOrderId)
             if (payment) {
                 await paymentService.updatePayment(razorpayOrderId, 'paid')
+                return sendResponse(res, true, 200, 'Payment verification success');
             }
-            return sendResponse(res, true, 200, 'Payment verification success');
         }
         return sendResponse(res, false, 400, 'Payment verification failed.');
     } catch (error) {

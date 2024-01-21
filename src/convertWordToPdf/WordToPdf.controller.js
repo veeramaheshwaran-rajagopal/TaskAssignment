@@ -1,15 +1,15 @@
-const { convertWordFileToPdf } = require("./WordToPdf.service")
-const convertWordToPdf = async () => {
+const docPdfConverter = require("docx-pdf");
+const { errorHandler, sendResponse } = require("../../utils/commonFunctions")
+const convertWordToPdf = (req, res) => {
     try {
-        if (!req.file) {
-            return res.status(400).send('No file uploaded.');
-        }
-        const pdfBytes = await convertWordFileToPdf(req)
-        res.contentType('application/pdf');
-        res.send(pdfBytes);
+        docPdfConverter(req.file.path, "output.pdf", (err) => {
+            if (err) {
+                return sendResponse(res, true, 400, "Conversion Failed...")
+            }
+            res.download("output.pdf")
+        })
     } catch (error) {
-        console.error('Conversion error:', error);
-        res.status(500).send('Internal Server Error');
+        errorHandler(error, res)
     }
 }
 module.exports = { convertWordToPdf }

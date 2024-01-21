@@ -35,4 +35,4 @@ passport.deserializeUser((obj, callback) => {
     callback(null, obj)
 })
 app.listen(process.env.PORT, () => { console.log(`Server Running On Port ${process.env.PORT}`) })
-doConnect()
+//doConnect()

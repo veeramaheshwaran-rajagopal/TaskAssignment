@@ -1,4 +1,5 @@
 const joi = require("joi")
+//validation schema for create order
 const createPaymentValidation = joi
     .object({
         body: joi.object({
@@ -9,6 +10,7 @@ const createPaymentValidation = joi
         }),
     })
     .unknown(true);
+//validation schema for verifyorder
 const verifyPaymentValidation = joi
     .object({
         headers: joi.object({
