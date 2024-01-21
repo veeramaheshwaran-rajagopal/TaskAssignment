@@ -1,6 +1,6 @@
 # TaskAssignment
 
-This is a simple Node.js application that provides a facebook login integeration,razorpay integeration,twilio sms service,mongodb relationships,promise handling
+This is a simple Node.js application that provides a facebook login integeration,razorpay integeration,twilio send otp as sms service,mongodb relationships,promise handling,word to pdf conversion
 
 ## Prerequisites
 - Node.js and npm installed on your system.
@@ -9,7 +9,7 @@ This is a simple Node.js application that provides a facebook login integeration
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/veeramaheshwaran-rajagoal/book-store.git
+git clone https://github.com/veeramaheshwaran-rajagopal/TaskAssignment.git
 ```
 
 

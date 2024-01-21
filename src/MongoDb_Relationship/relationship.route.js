@@ -17,10 +17,11 @@ router.post("/addStudent", validation(validationSchema.addStudentSchema), contro
 router.post("/addCourse", validation(validationSchema.addCourseSchema), controller.addCourse)
 //route for add assign course
 router.post("/assignCourse", validation(validationSchema.addStudentToCourseSchema), controller.addStudentToCourse)
+//route for one to one relationship
 router.get("/oneToOneRelationship", controller.oneToOneRelationship)
+//route for one to many relationship
 router.get("/oneToManyRelationship", controller.oneToManyRelationship)
+//route for many to many relationship
 router.get("/ManyToManyRelationship", controller.ManyToManyRelationship)
-// router.post("/addProfile", validation(validationSchema), controller.addProfile)
-// router.post("/addProfile", validation(validationSchema), controller.addProfile)
-// router.post("/addProfile", validation(validationSchema), controller.addProfile)
+// Export the router for use in other parts of the application
 module.exports = router
